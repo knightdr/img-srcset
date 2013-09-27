@@ -72,10 +72,14 @@
                     srcsetIndex     = _srcsetID - 1,
                     srcsetLength    = srcsetIndex,
                     match           = false;
-
+                    
+                if( srcsetIndex < 0 ) {
+                    return false;
+                }
+                
                 do {
                     srcset = _srcsets[srcsetLength - srcsetIndex];
-
+                    
                     // If img element does not have a parent, remove array index to prevent caching
                     if (!srcset.element.parentNode) {
                         _srcsetID--;
